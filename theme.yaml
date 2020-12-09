@@ -6,11 +6,24 @@ previewImage: "assets/images/preview.png"
 require:
     - rainlab.users
     - rainlab.builder
+    - rainlab.sitemap
+    - rainlab.location
+    - rainlab.pages
+    - rainlab.translate
     - rainlab.googleanalytics
-    - AnandPatel.SeoExtension
-    - RainLab.Sitemap
-    - Pensoft.Accordions
-    - Pensoft.Links
+    - abwebdevelopers.imageresize
+    - anandpatel.seoextension
+    - benfreke.menumanager
+    - bennothommo.meta
+    - offline.gdpr
+    - offline.sitesearch
+    - pikanji.agent
+    - suresoftware.powerseo
+    - vojtasvoboda.twigextensions
+    - zakir.imagecropper
+    - pensoft.accordions
+    - pensoft.links
+    - pensoft.pageextension
 form:
     tabs:
         defaultTab: 'General settings'
