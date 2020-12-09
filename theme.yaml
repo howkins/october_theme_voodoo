@@ -4,8 +4,13 @@ homepage: "https://pensoft.net"
 description: "Demonstrates the basic concepts of the front-end theming."
 previewImage: "assets/images/preview.png"
 require:
+    - rainlab.users
+    - rainlab.builder
+    - rainlab.googleanalytics
     - AnandPatel.SeoExtension
     - RainLab.Sitemap
+    - Pensoft.Accordions
+    - Pensoft.Links
 form:
     tabs:
         defaultTab: 'General settings'
