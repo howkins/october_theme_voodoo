@@ -1,29 +1,41 @@
 name: "Voodoo"
-author: "Pensoft"
+author: "PensoftTeam"
 homepage: "https://pensoft.net"
 description: "Demonstrates the basic concepts of the front-end theming."
 previewImage: "assets/images/preview.png"
 require:
-    - rainlab.users
     - rainlab.builder
-    - rainlab.sitemap
+    - rainlab.googleanalytics
     - rainlab.location
     - rainlab.pages
+    - rainlab.sitemap
     - rainlab.translate
-    - rainlab.googleanalytics
+    - rainlab.user
+    - AnandPatel.SeoExtension
+    - RainLab.Sitemap
     - abwebdevelopers.imageresize
     - anandpatel.seoextension
     - benfreke.menumanager
     - bennothommo.meta
     - offline.gdpr
     - offline.sitesearch
+    - panakour.translate
     - pikanji.agent
     - suresoftware.powerseo
     - vojtasvoboda.twigextensions
     - zakir.imagecropper
     - pensoft.accordions
+    - pensoft.articles
+    - pensoft.cardprofiles
+    - pensoft.jumbotron
+    - pensoft.library
     - pensoft.links
+    - pensoft.maintenance
+    - pensoft.media
     - pensoft.pageextension
+    - pensoft.partners
+    - pensoft.searchextension
+    - pensoft.internaldocuments
 form:
     tabs:
         defaultTab: 'General settings'
