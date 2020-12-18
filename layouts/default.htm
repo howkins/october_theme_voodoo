@@ -41,9 +41,10 @@ cookie_manager_page = "cookies"
     <script type="text/javascript" src="{{ 'assets/js/slick.min.js'|theme }}"></script>
 	<link rel="stylesheet" href="{{ ['assets/css/aos.css']|theme }}">
 	<script src="{{ 'assets/js/aos.js'|theme }}"></script>
-    
     {% component 'metaList' %}
+    {% framework extras %}
     {% styles %}
+    {% scripts %}
 </head>
 
 <body>
@@ -88,8 +89,8 @@ cookie_manager_page = "cookies"
     {% endif %}
 
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    {% framework extras %}
-    {% scripts %}
+    
+    
 	<div id="gdpr-reload">
 		{% partial 'gdpr' %}
 	</div>

@@ -10,18 +10,24 @@ robot_follow = "follow"
 [article_highlights]
 maxItems = 10
 title = "Latest from the project"
+baseUrl = "/news"
 
 [Timeline]
 limit = 5
 
 [publications_list]
+baseUrl = "/news"
 
 [jumbotron]
-jumbotron = "test"
+jumbotron = "my-first-jumbotron"
+
+[jumbotron jumbotron2]
+jumbotron = "my-second-jumbotron"
 ==
 <!-- latest from news -->
 {% component 'jumbotron' %}
 {% component 'article_highlights' %}
+{% component 'jumbotron2' %}
 <div class="container">
     <!-- subscribes -->
     <div class="row">
