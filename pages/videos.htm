@@ -19,7 +19,7 @@ pageNumber = "{{ :page }}"
 use Pensoft\Media\Models\Videos;
 
 function onStart(){
-	$this['mediaVideosList'] =  Videos::get();
+	$this['mediaVideosList'] =  Videos::where('pensoft_media_videos.parent_id', null)->get();
 }
 ?>
 ==
@@ -35,20 +35,20 @@ function onStart(){
 		{% for record in records %}
 		{# Use spaceless tag to remove spaces inside the A tag. #}
 		{% spaceless %}
-		<div class="col-xs-12">
+		<div class="col-xs-12 col-md-6" id="accordion-documents">
 			<p>{{record.name}}</p>
 			{% if record.file %}
-			<video controls="" height="360px" width="640px"><source src="{{record.file.path}}" type="video/mp4"></video>
+			<video controls="" height="360px" width="570px"><source src="{{record.file.path}}" type="video/mp4"></video>
 
 			<p>Attachment: {{record.file.file_name}}</p>
 
-			<div class="row"><div class="col-xs-12 col-md-2"><p><a class=" btn btn-secondary large fluid download" href="{{record.file.path}}">Download</a></p></div></div>
+			<div class="row"><div class="col-xs-12 col-md-4"><p><a class=" btn btn-secondary large fluid download" href="{{record.file.path}}">Watch video</a></p></div></div>
 
 			<p>&nbsp;</p>
 			{% endif %}
 
 			{% if record.youtube_url %}
-			<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="{{record.youtube_url}}" width="640" height="360"></iframe>
+			<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="{{record.youtube_url}}" width="570" height="360"></iframe>
 
 			<p>&nbsp;</p>
 			{% endif %}
@@ -59,11 +59,56 @@ function onStart(){
 			</iframe>
 			<p>&nbsp;</p>
 			{% endif %}
+			{% if record.getChildren.count %}
+			<div class="accordion-toggle folder row" style="margin-bottom: 0;">
+				<div class="col-xs-11">
+					Watch the individual presentations
+				</div>
+				<div class="col-xs-1 end-xs plusminus"><span class="plus"></span></div>
+			</div>
+			<div class="accordion-content" style="display: none;">
+				{% for subvideo in record.getChildren %}
+				<div class="col-xs-12 col-md-6">
+					<p>&nbsp;</p>
+					<p>{{subvideo.name}}</p>
+					{% if subvideo.file %}
+					<video controls="" height="360px" width="570px"><source src="{{subvideo.file.path}}" type="video/mp4"></video>
+
+					<p>Attachment: {{subvideo.file.file_name}}</p>
+
+					<div class="row"><div class="col-xs-12 col-md-4"><p><a class=" btn btn-secondary large fluid download" href="{{subvideo.file.path}}">Watch video</a></p></div></div>
+
+					<p>&nbsp;</p>
+					{% endif %}
+
+					{% if subvideo.youtube_url %}
+					<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="{{subvideo.youtube_url}}" width="570" height="360"></iframe>
+
+					<p>&nbsp;</p>
+					{% endif %}
+
+					{% if subvideo.vimeo_url %}
+					<iframe width="640" height="360" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							src="{{subvideo.vimeo_url}}">
+					</iframe>
+					<p>&nbsp;</p>
+					{% endif %}
+
+				</div>
+				{% endfor %}
+			</div>
+			{% endif %}
 		</div>
+
+
+
 
 		{% endspaceless %}
 		{% else %}
 		{{ noRecordsMessage }}
 		{% endfor %}
+		<script>
+			initAccordeon('accordion-documents');
+		</script>
 	</div>
 </div>
