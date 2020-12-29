@@ -11,6 +11,8 @@ require:
     - rainlab.sitemap
     - rainlab.translate
     - rainlab.user
+    - AnandPatel.SeoExtension
+    - RainLab.Sitemap
     - abwebdevelopers.imageresize
     - anandpatel.seoextension
     - benfreke.menumanager
@@ -25,7 +27,6 @@ require:
     - pensoft.accordions
     - pensoft.articles
     - pensoft.cardprofiles
-    - pensoft.internaldocuments
     - pensoft.jumbotron
     - pensoft.library
     - pensoft.links
@@ -34,6 +35,7 @@ require:
     - pensoft.pageextension
     - pensoft.partners
     - pensoft.searchextension
+    - pensoft.internaldocuments
 form:
     tabs:
         defaultTab: 'General settings'
@@ -207,17 +209,17 @@ form:
             font_size:
                 label: Font size
                 tab: 'Typography'
-                default: 18px
+                default: medium
                 assetVar: 'font-size'
             line_height:
                 label: Line height
                 tab: 'Typography'
-                default: 1.7em
+                default: normal
                 assetVar: 'line-height'
             letter_spacing:
                 label: Letter spacing
                 tab: 'Typography'
-                default: 0.3px
+                default: normal
                 assetVar: 'letter-spacing'
             font_family:
                 label: Font family
