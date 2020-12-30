@@ -15,21 +15,10 @@ $(document).ready(function() {
 	loggedInMenuNavbar.find('#menu').removeAttr('id');
 });
 
-function isBreakpointLarge(){
-    return window.innerWidth <= 991;
-}
-
 function encodeURIObject(data){
     return Object.keys(data).map(function (i) {
         return encodeURIComponent(i) + '=' + encodeURIComponent(data[i])
     }).join('&');
-}
-
-function cardCarousel(object){
-    return new Promise(resolve => {
-        $('#card-carousel').slick(object);
-        resolve()
-    });
 }
 
 function appendProfile() {
@@ -71,42 +60,48 @@ function initAccordeon(pElem) {
 	});
 }
 
+function isBreakpointLarge() {
+    return window.innerWidth <= 991;
+}
+
 function init() {
     window.addEventListener('resize', function () {
-        keepFooter(documentHasScroll());
-        if (isBreakpointLarge()){
+        if (isBreakpointLarge()) {
             $('#card-carousel').slick('unslick');
-        }else{
-            cardCarousel({
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                autoplay: true,
-				autoplaySpeed: 6000,
-				prevArrow: '<i class="slick-prev p p-back"/>',
-				nextArrow: '<i class="slick-next p p-forward"/>',
-            });
+        } else {
+            if (typeof cardCarousel === 'function') { 
+                cardCarousel({
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    autoplay: true,
+                    autoplaySpeed: 6000,
+                    prevArrow: '<i class="slick-prev pr p-back"/>',
+                    nextArrow: '<i class="slick-next pr p-forward"/>',
+                });
+             }
         }
+        keepFooter(documentHasScroll());
+
     });
     document.addEventListener('DOMContentLoaded', function () {
-        onLoadedDomContent();
+        if (!isBreakpointLarge()) {
+            if (typeof cardCarousel === 'function') { 
+                cardCarousel({
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    autoplay: true,
+                    autoplaySpeed: 6000,
+                    prevArrow: '<i class="slick-prev pr p-back"/>',
+                    nextArrow: '<i class="slick-next pr p-forward"/>',
+                });
+            }
+        }
+        keepFooter(documentHasScroll());
+
     });
     // appendProfile()
     appendSignIn()
     appendSignOut()
-}
-
-async function onLoadedDomContent(){
-    if (!isBreakpointLarge()) {
-        await cardCarousel({
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            autoplay: true,
-			autoplaySpeed: 6000,
-			prevArrow: '<i class="slick-prev pr p-back"/>',
-			nextArrow: '<i class="slick-next pr p-forward"/>',
-        });
-    }
-    keepFooter(documentHasScroll());
 }
 
 init()

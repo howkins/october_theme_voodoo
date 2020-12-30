@@ -209,17 +209,17 @@ form:
             font_size:
                 label: Font size
                 tab: 'Typography'
-                default: medium
+                default: 18px
                 assetVar: 'font-size'
             line_height:
                 label: Line height
                 tab: 'Typography'
-                default: normal
+                default: 1.7em
                 assetVar: 'line-height'
             letter_spacing:
                 label: Letter spacing
                 tab: 'Typography'
-                default: normal
+                default: 0.3px
                 assetVar: 'letter-spacing'
             font_family:
                 label: Font family
