@@ -426,3 +426,30 @@ a:hover .arrow-left{
   background-size: 33px;
   padding-left: 42px;
 }
+
+
+.card.internal{
+  background: none;
+}
+
+.card.internal .card-header {
+  margin-bottom: 0;
+
+  border-bottom: 0px;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 1em;
+
+  a{
+    padding: 10px 20px;
+    background-color: @button-background-color;
+    border-radius: 50px;
+    color: @white-color;
+    display: block;
+  }
+
+  a:hover{
+    background-color: @secondary-color;
+    color: @button-background-color!important;
+  }
+}
