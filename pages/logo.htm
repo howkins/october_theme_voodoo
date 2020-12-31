@@ -42,17 +42,17 @@ function onStart(){
 
 				{% if record.file_jpg %}
 					<div class="col-xs-12 col-lg-4">
-						<div class="media-btn_broshure_and_poster"><button class="btn btn-secondary" href="{{record.file_jpg.path}}" target="_blank"><i class="pr normal p-download"></i> Download .jpg</button></div>
+						<div class="media-btn_broshure_and_poster"><a class="btn btn-secondary" href="{{record.file_jpg.path}}" target="_blank"><i class="pr normal p-download"></i> Download .jpg</a></div>
 					</div>
 				{% endif %}
 				{% if record.file_png %}
 				<div class="col-xs-12 col-lg-4">
-					<div class="media-btn_broshure_and_poster"><button class="btn btn-secondary" href="{{record.file_png.path}}" target="_blank"><i class="pr normal p-download"></i> Download .png</button></div>
+					<div class="media-btn_broshure_and_poster"><a class="btn btn-secondary" href="{{record.file_png.path}}" target="_blank"><i class="pr normal p-download"></i> Download .png</a></div>
 				</div>
 				{% endif %}
 				{% if record.file_eps %}
 				<div class="col-xs-12 col-lg-4">
-					<div class="media-btn_broshure_and_poster"><button class="btn btn-secondary" href="{{record.file_eps.path}}" target="_blank"><i class="pr normal p-download"></i> Download .svg</button></div>
+					<div class="media-btn_broshure_and_poster"><a class="btn btn-secondary" href="{{record.file_eps.path}}" target="_blank"><i class="pr normal p-download"></i> Download .svg</a></div>
 				</div>
 				{% endif %}
 			</div>

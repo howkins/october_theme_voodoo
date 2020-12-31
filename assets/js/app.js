@@ -3,6 +3,9 @@ var documentHasScroll = function() {
     return window.innerHeight <= document.body.offsetHeight;
 };
 var keepFooter = function(documentHasScroll){
+    if (!document.getElementById("layout-footer")){
+        return;
+    }
     if(documentHasScroll){
         document.getElementById("layout-footer").classList.remove('fixed-bottom');
     }else{
