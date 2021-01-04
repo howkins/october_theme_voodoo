@@ -38,7 +38,7 @@ function onStart(){
 		{% if record.presentation_image %}
 		<div class="col-xs-12 col-lg-4">
 			<div class="story broshure_and_poster">
-				<p align="center"><a href="{{record.file.path}}" target="_blank"><img src="{{record.presentation_image.crop_image|resize(305,200,{'mode':'crop'})}}" title="{{record.name}}> </a></p>
+				<p align="center"><a href="{{record.file.path}}" target="_blank"><img src="{{record.presentation_image|crop_image|resize(305,200,{'mode':'crop'})}}" title="{{record.name}}"> </a></p>
 			</div>
 			{% if record.file %}
 			<div class="media-btn_broshure_and_poster"><a class="download btn btn-secondary fluid" href="{{record.file.path}}" target="_blank">Download presentation</a></div>
