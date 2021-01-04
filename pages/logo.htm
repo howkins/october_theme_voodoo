@@ -37,7 +37,7 @@ function onStart(){
 		{% if record.logo_image %}
 			<div class="row">
 				<div class="col-xs-12">
-						<p><img src="{{record.logo_image.thumb(305,200,{'mode':'crop'})}}" title="{{record.name}}"></p>
+						<p><img src="{{record.logo_image.crop_image|resize(305,200,{'mode':'crop'})}}" title="{{record.name}}"></p>
 				</div>
 
 				{% if record.file_jpg %}
