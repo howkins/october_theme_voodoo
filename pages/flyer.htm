@@ -43,7 +43,7 @@ function onStart(){
 			{% if record.file %}
 			<div class="media-btn_broshure_and_poster"><button class="btn btn-secondary" href="{{record.file.path}}" target="_blank"><i class="pr normal p-download"></i> Download flyer</button></div>
 
-			<div class="media-size">({{record.name}}) {{record.file.extension | uppercase}} {{record.file.size }}</div>
+			<div class="media-size">{{record.name}} ({{record.file.extension | uppercase}} {{record.file.size }})</div>
 			{% endif %}
 		</div>
 	{% endif %}
