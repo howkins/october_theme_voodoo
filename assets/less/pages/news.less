@@ -38,6 +38,9 @@
 }
 .news-image + .news-container {
     margin-left: @margin-base-space*2;
+    .breakpoint-small-down({
+      margin-left: 0;
+    });
 }
 .share-btn {
     display: flex;
@@ -61,6 +64,9 @@
 
 .news-img-left, .content.left{
   .rounded(5px);
+  .breakpoint-small-down({
+    width: 100%;
+  });
 }
 
 .file_preview{
