@@ -19,8 +19,8 @@ numberOfLevels = 2
 {% if user %}
 <nav class="fixed navbar-loggedin-user ">
 	<div class="navbar-collapse collapse row middle-xs">
-		<div class="col-sm-9 col-xs-12">{% component 'login' %}</div>
-		<div class="col-sm-3 end-sm hidden-xs">
+		<div class="col-sm-10 col-xs-12">{% component 'login' %}</div>
+		<div class="col-sm-2 end-sm hidden-xs">
 			{% if user.avatar %}
 				<a href="/profile" style="color:#ffffff;">{{ user.name }} {{ user.surname }} &nbsp; &nbsp; <img alt="{{ user.name }} {{ user.surname }}" src="{{user.avatar.getThumb(30,30, { mode : 'crop' } )}}" style="border-radius: 50%; margin-right:20px;" align="right"> </a>
 			{% else %}
@@ -38,9 +38,7 @@ numberOfLevels = 2
 		<span></span>
 		{% component 'menu' %}
 	</div>
-	<a href="{{'home'|page}}" class="navbar-brand" style="background-image: url('{{ this.theme.site_logo.getPath() }}'); background-position-x: center;
-    background-position-y: center;
-    background-size: 133%;">
+	<a href="{{'home'|page}}" class="navbar-brand" style="background-image: url('{{ this.theme.site_logo.getPath() }}'); background-position: center; background-size: 170%;">
 
     </a>
 
@@ -67,9 +65,9 @@ numberOfLevels = 2
 {% if this.theme.header_image %}
 <div class="header-image {{page_id}}">
     {%if this.page.header_image %}
-        <div class="header-image-bar" style="background-image: url('{{this.page.header_image|media}}'); background-position: top center;"></div>
+        <div class="header-image-bar" style="background-image: url('{{this.page.header_image|media}}'); background-position: bottom center;"></div>
     {%else%}
-        <div class="header-image-bar" style="background-image: url('{{this.theme.header_image.getPath()}}'); background-position: top center;"></div>
+        <div class="header-image-bar" style="background-image: url('{{this.theme.header_image.getPath()}}'); background-position: bottom center;"></div>
     {%endif%}
     <div class="jumbotron px-1" data-aos="fade-up">
         <h1 class="underline white  {% if page_id == 'home'%}home-page-header{% endif %}">{%if page_title%} {{page_title}} {%else%} {{site_name}} {%endif%}</h1>

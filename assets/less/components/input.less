@@ -26,11 +26,15 @@
         .border-top();
         .border-left();
         color: @primary-color;
-        padding: 0 10px;
-      font-size: 14px;
-      .breakpoint-small-down({
-        height: 43px;
-      });
+        padding: 0px 10px;
+        height: 32px;
+        width: 150px;
+        box-sizing: border-box;
+        font-size: 14px;
+        .breakpoint-small-down({
+          height: 45px;
+        width: 100%;
+        });
     }
     &.documents_search {
         background-color: @transparent !important;

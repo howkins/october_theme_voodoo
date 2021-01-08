@@ -17,9 +17,32 @@ pageNumber = "{{ :page }}"
 ==
 <?php
 use Pensoft\Media\Models\MediaLogos;
+use System\Models\File;
+use Redirect;
 
 function onStart(){
 	$this['mediaLogosList'] =  MediaLogos::get();
+	if(post('download')){
+		$file = File::find((int)post('download'));
+		$file_name = $file->getLocalPath();
+
+if (file_exists($file_name)) {
+header('Content-Description: File Transfer');
+header('Content-Type: application/octet-stream');
+header("Content-Type: application/force-download");
+header('Content-Disposition: attachment; filename=' . urlencode(basename($file_name)));
+header('Content-Transfer-Encoding: binary');
+header('Expires: 0');
+header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+header('Pragma: public');
+header('Content-Length: ' . filesize($file_name));
+ob_clean();
+flush();
+readfile($file_name);
+exit();
+}
+return Redirect::to('/media-center/flyer');
+}
 }
 ?>
 ==
@@ -37,22 +60,22 @@ function onStart(){
 		{% if record.logo_image %}
 			<div class="row">
 				<div class="col-xs-12">
-						<p><img src="{{record.logo_image|crop_image|resize(305,200,{'mode':'crop'})}}" title="{{record.name}}"></p>
+						<p><img src="{{record.logo_image.thumb(305,200,{'mode':'crop'})}}" title="{{record.name}}"></p>
 				</div>
 
 				{% if record.file_jpg %}
 					<div class="col-xs-12 col-lg-4">
-						<div class="media-btn_broshure_and_poster"><a class="btn btn-secondary" href="{{record.file_jpg.path}}" target="_blank"><i class="pr normal p-download"></i> Download .jpg</a></div>
+						<div class="media-btn_broshure_and_poster"><a class="btn btn-secondary" href="{{ ''| page }}?{{queries}}&download={{record.file_jpg.id}}"><i class="pr normal p-download"></i> Download .jpg</a></div>
 					</div>
 				{% endif %}
 				{% if record.file_png %}
 				<div class="col-xs-12 col-lg-4">
-					<div class="media-btn_broshure_and_poster"><a class="btn btn-secondary" href="{{record.file_png.path}}" target="_blank"><i class="pr normal p-download"></i> Download .png</a></div>
+					<div class="media-btn_broshure_and_poster"><a class="btn btn-secondary" href="{{ ''| page }}?{{queries}}&download={{record.file_png.id}}"><i class="pr normal p-download"></i> Download .png</a></div>
 				</div>
 				{% endif %}
 				{% if record.file_eps %}
 				<div class="col-xs-12 col-lg-4">
-					<div class="media-btn_broshure_and_poster"><a class="btn btn-secondary" href="{{record.file_eps.path}}" target="_blank"><i class="pr normal p-download"></i> Download .svg</a></div>
+					<div class="media-btn_broshure_and_poster"><a class="btn btn-secondary" href="{{ ''| page }}?{{queries}}&download={{record.file_eps.id}}"><i class="pr normal p-download"></i> Download .svg</a></div>
 				</div>
 				{% endif %}
 			</div>
