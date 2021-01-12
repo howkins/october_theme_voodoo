@@ -62,12 +62,13 @@ function onStart(){
 	{% if record.flyer_image %}
 		<div class="col-xs-12 col-lg-4">
 			<div class="story broshure_and_poster">
-				<p align="center"><a href="{{record.file.path}}" target="_blank"><img src="{{record.flyer_image.thumb(305,200,{'mode':'crop'})}}" title="{{record.name}}> </a></p>
+				<p align="center"><a href="{{record.file.path}}" target="_blank"><img src="{{record.flyer_image.thumb(305,200,{'mode':'crop'})}}" title="{{record.name}}"> </a></p>
 			</div>
+			<div class="media-size text-center">{{record.name}}</div>
 			{% if record.file %}
-			<div class="media-btn_broshure_and_poster"><a class="btn btn-secondary" href="{{ ''| page }}?{{queries}}&download={{record.file.id}}"><i class="pr normal p-download"></i> Download flyer</a></div>
+			<div class="media-btn_broshure_and_poster text-center"><a class="btn btn-secondary" href="{{ ''| page }}?{{queries}}&download={{record.file.id}}"><i class="pr normal p-download"></i> Download flyer</a></div>
 
-			<div class="media-size">{{record.file.extension | uppercase}} {{record.file.size }}</div>
+			<div class="media-size text-center">{{record.file.extension | uppercase}} {{record.file.size }}</div>
 			{% endif %}
 		</div>
 	{% endif %}

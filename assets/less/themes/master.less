@@ -42,6 +42,9 @@ ol.q {list-style-type: upper-roman; padding-left: 20px;}
         .breakpoint-small-down({
           //margin-top: 64px;
         });
+        .breakpoint-laptop-down({
+          height: 580px;
+        });
 
     }
 
@@ -90,6 +93,9 @@ ol.q {list-style-type: upper-roman; padding-left: 20px;}
     &.home {
         .header-image-bar {
             height: 691px;
+            .breakpoint-laptop-down({
+              height: 580px;
+            });
         }
         h1 {
             &.underline {
@@ -226,5 +232,40 @@ ol.q {list-style-type: upper-roman; padding-left: 20px;}
   border: none!important;
   background: none!important;
   color: unset!important;
+}
+
+.funded_by{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.funded_by img{
+  margin: 10px;
+  display: inline-flex;
+}
+
+.funded_by img:nth-of-type(1){
+  //max-height: 50px;
+  max-width: 105px;
+  margin: 10px 10px 10px 0!important;
+}
+.funded_by img:nth-of-type(2){
+  //max-height: 80px;
+  max-width: 166px;
+}
+.funded_by img:nth-of-type(3){
+  //max-height: 120px;
+  max-width: 225px;
+}
+.funded_by img:nth-of-type(4){
+  //max-height: 100px;
+  max-width: 186px;
+}
+
+.funded_by img:nth-of-type(5){
+  max-width: 320px;
+  margin: 10px 0px 10px 10!important;
 }
 
