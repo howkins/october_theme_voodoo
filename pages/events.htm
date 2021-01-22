@@ -79,3 +79,13 @@ function onStart(){
 {% endif %}
 
 </div>
+
+<script>
+	var documentHasScroll = function() {
+		return window.innerHeight <= document.body.offsetHeight;
+	};
+	function ready() {
+		keepFooter(documentHasScroll());
+	}
+	document.addEventListener("DOMContentLoaded", ready);
+</script>
