@@ -22,7 +22,7 @@ use Redirect;
 
 function onStart(){
 	$this['mediaLogosList'] =  MediaLogos::get();
-	if(post('download')){
+		if(post('download')){
 		$file = File::find((int)post('download'));
 		$file_name = $file->getLocalPath();
 
@@ -41,8 +41,9 @@ flush();
 readfile($file_name);
 exit();
 }
-return Redirect::to('/media-center/flyer');
+return Redirect::to('/media-center/logo');
 }
+
 }
 ?>
 ==
