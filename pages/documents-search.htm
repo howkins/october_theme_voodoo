@@ -37,7 +37,7 @@ function onStart(){
 }
 
 public function onDownloadHandler(){
-	$files = post('files');
+	$files = get('files');
 	return Redirect::to('trigger-download')->with('files', $files); // pass attributes in the session
 }
 ?>

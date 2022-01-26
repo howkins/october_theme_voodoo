@@ -22,8 +22,8 @@ use Redirect;
 
 function onStart(){
 	$this['mediaNewslettersList'] =  Newsletters::get();
-	if(post('download')){
-		$file = File::find((int)post('download'));
+	if(get('download')){
+		$file = File::find((int)get('download'));
 		$file_name = $file->getLocalPath();
 
 if (file_exists($file_name)) {
