@@ -1,17 +1,19 @@
+[viewBag]
+==
 <div class="container-fluid border-box">
     <div class="row nowrap text-light d-flex justify-content-between align-items-center flex-column flex-lg-row">
         {% if (footer_funds_flag != null or footer_funds_text != '') %}
-        <div class="funding flex-column my-1 my-lg-0 flex-lg-row px-1 align-items-center col-lg col-xs-12">
+        <div class="funding flex-column my-1 my-sm-0 flex-sm-row px-1 align-items-center col-lg col-xs-12 row">
             {% if footer_funds_flag %}
-				<img class="text mr-0 mr-lg-1" style="height:50px;" src="{{ footer_funds_flag }}"/>
+				<img class="text mr-0 mr-sm-1" style="height:50px;" src="{{ footer_funds_flag }}"/>
             {% endif %}
             {% if footer_funds_text %}
-				<span class="align-items-center mt-lg-0 mt-1">{{footer_funds_text}}</span>
+				<span class="align-items-center mt-sm-0 mt-1">{{footer_funds_text}}</span>
             {%endif %}
         </div>
         {% endif %}
         {% if (enable_social_media) %}
-        <div class="social-networks px-1 col-lg-1 col-xs-12">
+        <div class="social-networks px-1 col-sm-1 col-xs-12">
             <div class="icons">
                 {% if enable_facebook and facebook_url %}
                     <a href="{{facebook_url}}" class="btn p-primary pr p-facebook " target="_blank" style="padding: 0 6px;" ></a>
@@ -28,8 +30,9 @@
             </div>
         </div>
         {% endif %}
-		<div class="col-lg-3 col-xs-12"><a style="flex:0 0 auto;" href="/privacy-policy">Read our Privacy Policy</a></div>
-		<div class="col-lg-3 col-xs-12"><div class="powered-by my-1 my-lg-0 px-1 align-items-center justify-content-end"><span class="mr-1">Designed and powered by</span><a href="{{config('link.pensoft')}}" target="_blank"><img class="text" src="{{ 'assets/images/pensoft-logo.svg'|theme }}" style="margin-top: 8px;
+		<div class="col-sm-3 col-xs-12"><a style="flex:0 0 auto;" href="/privacy-policy">Read our Privacy Policy</a></div>
+		<div class="col-sm-3 col-xs-12">
+		<div class="powered-by my-1 my-lg-0 px-1 align-items-center justify-content-end row center-xs"><span class="mr-1">Designed and powered by</span><a href="{{config('link.pensoft')}}" target="_blank"><img class="text" src="{{ 'assets/images/pensoft-logo.svg'|theme }}" style="margin-top: 8px;
     height: 27px;"/></a></div></div>
     </div>
 </div>
